@@ -1,0 +1,34 @@
+package lab9;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.Set;
+
+public class Exercise1 {
+	public static void main(String[] args) {
+		HashMap<Integer,Integer> h1= new HashMap<Integer,Integer>();
+		h1.put(8,108);
+		h1.put(1,111);
+		h1.put(2,102);
+		h1.put(5,105);
+		ArrayList all=new ArrayList();
+		all=(ArrayList)getValues(h1);
+		System.out.println(all);
+	}
+	static List getValues(HashMap h1)
+	{
+		ArrayList l=new ArrayList();
+		Set s=h1.entrySet();
+		Iterator i=s.iterator();
+		while(i.hasNext()) {
+			Entry e=(Entry) i.next();
+			l.add(e.getValue());
+		}
+		Collections.sort(l);
+		return l;
+	}
+}
